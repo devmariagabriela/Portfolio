@@ -37,20 +37,30 @@ span {
 .nav-links a { color: white; text-decoration: none; transition: 0.3s; font-weight: 500; }
 .nav-links a:hover { color: #8a2be2; }
 
-/* Hero */
+/* Hero Section */
 .hero {
     height: 100vh;
     display: flex;
     align-items: center;
     padding: 0 10%;
-    background: radial-gradient(circle at 80% 20%, rgba(138, 43, 226, 0.15) 0%, transparent 40%);
+    background: radial-gradient(circle at 80% 20%, rgba(138, 43, 226, 0.1) 0%, transparent 40%);
 }
 
-.hero h1 { font-size: 4rem; line-height: 1.1; }
+.hero-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    gap: 50px;
+}
+
+.hero-text { flex: 1; }
+.hero-text h1 { font-size: 3.5rem; line-height: 1.2; margin-bottom: 20px; }
+.hero-text p { font-size: 1.1rem; color: #ccc; margin-bottom: 30px; max-width: 500px; }
+.hero-btns { display: flex; gap: 20px; }
 
 .btn {
     display: inline-block;
-    margin-top: 30px;
     padding: 15px 40px;
     background: #8a2be2;
     color: white;
@@ -62,20 +72,58 @@ span {
 }
 
 .btn:hover { transform: scale(1.05); box-shadow: 0 0 30px rgba(138, 43, 226, 0.6); }
+.btn.secondary { background: transparent; border: 2px solid #8a2be2; box-shadow: none; }
+.btn.secondary:hover { background: #8a2be2; color: white; }
 
-/* Seções */
+/* Foto de Perfil */
+.hero-image { flex: 1; display: flex; justify-content: center; }
+.image-border {
+    width: 320px; height: 320px;
+    border-radius: 50%; border: 4px solid #8a2be2;
+    padding: 10px; box-shadow: 0 0 30px rgba(138, 43, 226, 0.3);
+    overflow: hidden; transition: 0.5s;
+}
+.image-border:hover { transform: scale(1.05); box-shadow: 0 0 50px rgba(138, 43, 226, 0.5); }
+.image-border img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; }
+
+/* Seções Comuns */
 .section { padding: 100px 10%; text-align: center; }
-.about-container { max-width: 800px; margin: 0 auto; color: #ccc; line-height: 1.8; }
+.about-container { max-width: 800px; margin: 0 auto; color: #ccc; line-height: 1.8; font-size: 1.1rem; }
 
-/* Habilidades */
+/* Habilidades Ajustado */
 .skills-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+    gap: 25px;
     margin-top: 50px;
 }
 
-.skill-item i { font-size: 3rem; color: #8a2be2; margin-bottom: 10px; }
+.skill-item {
+    background: rgba(255, 255, 255, 0.03);
+    padding: 20px 10px;
+    border-radius: 15px;
+    border: 1px solid rgba(138, 43, 226, 0.1);
+    transition: 0.3s;
+}
+
+.skill-item:hover {
+    background: rgba(138, 43, 226, 0.05);
+    border-color: #8a2be2;
+    transform: translateY(-5px);
+}
+
+.skill-item i {
+    font-size: 2.5rem;
+    color: #8a2be2;
+    margin-bottom: 10px;
+    display: block;
+}
+
+.skill-item p {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #fff;
+}
 
 /* Cards de Projeto (Estilo Vercel) */
 .projects-grid {
@@ -86,17 +134,13 @@ span {
 }
 
 .project-card {
-    background: #161616;
-    border-radius: 20px;
-    overflow: hidden;
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    transition: all 0.4s ease;
-    text-align: left;
+    background: #161616; border-radius: 20px;
+    overflow: hidden; border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: all 0.4s ease; text-align: left;
 }
 
 .project-card:hover {
-    transform: translateY(-10px);
-    border-color: #8a2be2;
+    transform: translateY(-10px); border-color: #8a2be2;
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 20px rgba(138, 43, 226, 0.1);
 }
 
@@ -104,10 +148,9 @@ span {
 .project-image img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
 
 .project-overlay {
-    position: absolute;
-    top: 0; left: 0; width: 100%; height: 100%;
-    background: rgba(138, 43, 226, 0.8);
-    display: flex; align-items: center; justify-content: center;
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(138, 43, 226, 0.8); display: flex;
+    align-items: center; justify-content: center;
     opacity: 0; transition: 0.4s;
 }
 
@@ -139,8 +182,16 @@ span {
 .social-icons a { font-size: 2.5rem; color: white; transition: 0.3s; }
 .social-icons a:hover { color: #8a2be2; transform: scale(1.2); }
 
-footer { padding: 50px; background: #050505; border-top: 1px solid rgba(255, 255, 255, 0.05); }
+footer { padding: 50px; background: #050505; border-top: 1px solid rgba(255, 255, 255, 0.05); text-align: center; color: #666; }
 
 /* Animação Reveal */
 .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s ease-out; }
 .reveal.active { opacity: 1; transform: translateY(0); }
+
+/* Responsividade */
+@media (max-width: 992px) {
+    .hero-container { flex-direction: column-reverse; text-align: center; }
+    .hero-text h1 { font-size: 2.5rem; }
+    .hero-btns { justify-content: center; }
+    .image-border { width: 250px; height: 250px; }
+}

@@ -13,10 +13,8 @@ function reveal() {
     });
 }
 
-// Ouvinte de evento para o scroll
+// Ouvinte de evento para o scroll e carregamento
 window.addEventListener("scroll", reveal);
-
-// Executa ao carregar a página
 window.addEventListener("load", reveal);
 
 // Navegação suave para links internos
