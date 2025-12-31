@@ -90,7 +90,7 @@ span {
 .section { padding: 100px 10%; text-align: center; }
 .about-container { max-width: 800px; margin: 0 auto; color: #ccc; line-height: 1.8; font-size: 1.1rem; }
 
-/* Habilidades Ajustado */
+/* Habilidades */
 .skills-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
